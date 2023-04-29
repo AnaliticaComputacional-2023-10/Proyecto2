@@ -52,6 +52,10 @@ df.heartdis = df.heartdis.astype(int)
 df.drop(['num', 'caNull', 'thalNull'], axis=1, inplace=True)
 
 variable = df.columns
+diccionario = {'Edad': 'age', 'Sexo': 'sex', 'Dolor en Pecho': 'cp'}
+
+columnas = ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg',
+            'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal', 'num']
 
 #Layout
 graficas_layout = html.Div(children=[
@@ -68,35 +72,25 @@ graficas_layout = html.Div(children=[
     html.Div(
         dbc.Row(
             [
-                #Edad
+                #Eje Y
                 dbc.Col(
                     html.Div([
+                        html.Label('Seleccione un valor para el eje Y:'),
                         dcc.Dropdown(
                             id='xaxis-column',
-                            options=[{'label': i, 'value': i} for i in variable],
+                            options=[{'label': i, 'value': diccionario[i]} for i in diccionario],
                             value='age'
-                        ),
-                        dcc.RadioItems(
-                            id='xaxis-type',
-                            options=[{'label': i, 'value': i} for i in ['Linear', 'Log']],
-                            value='Linear',
-                            labelStyle={'display': 'inline-block'}
                         )
                     ],style={'width': '30rem', 'display': 'inline-block'}),
                 ),
-                #Sexo
+                #Eje X
                 dbc.Col(
                     html.Div([
+                        html.Label('Seleccione un valor para el eje X:'),
                         dcc.Dropdown(
                             id='yaxis-column',
-                            options=[{'label': i, 'value': i} for i in variable],
+                            options=[{'label': i, 'value': diccionario[i]} for i in diccionario],
                             value='sex'
-                        ),
-                        dcc.RadioItems(
-                            id='yaxis-type',
-                            options=[{'label': i, 'value': i} for i in ['Linear', 'Log']],
-                            value='Linear',
-                            labelStyle={'display': 'inline-block'}
                         )
                     ],style={'width': '30rem', 'float': 'right', 'display': 'inline-block'})
                 ),
@@ -106,8 +100,6 @@ graficas_layout = html.Div(children=[
         style={'display': 'flex',
               'justify-content': 'center'}
     ),
-
-
 
     #Grafica
     html.Div(
@@ -123,22 +115,18 @@ graficas_layout = html.Div(children=[
 @app.callback(
     Output('indicator-graphic', 'figure'),
     Input('xaxis-column', 'value'),
-    Input('yaxis-column', 'value'),
-    Input('xaxis-type', 'value'),
-    Input('yaxis-type', 'value')
+    Input('yaxis-column', 'value')
 )
-def update_graph(xaxis_column_name, yaxis_column_name,
-                 xaxis_type, yaxis_type):
+def update_graph(xaxis_column_name, yaxis_column_name):
+
     fig = px.scatter(df, x=xaxis_column_name, y=yaxis_column_name,
-                     color='heartdis',
-                     hover_data=df.columns)
+                 color='heartdis',
+                 hover_data=variable,
+                 color_discrete_sequence=['red', 'blue'])
 
     fig.update_layout(transition_duration=500)
 
-    fig.update_xaxes(title=xaxis_column_name,
-                     type='linear' if xaxis_type == 'Linear' else 'log')
-
-    fig.update_yaxes(title=yaxis_column_name,
-                     type='linear' if yaxis_type == 'Linear' else 'log')
-
     return fig
+
+
+
