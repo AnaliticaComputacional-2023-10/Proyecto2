@@ -20,6 +20,7 @@ navbar = dbc.Navbar(
                         dbc.Col([
                             dbc.Nav([
                                 dbc.NavItem(dbc.NavLink("Inicio", href="/")),
+                                dbc.NavItem(dbc.NavLink("Graficas", href="/graficas")),
                                 dbc.NavItem(dbc.NavLink("Instrucciones", href="/instrucciones")),
                                 dbc.NavItem(dbc.NavLink("Programa", href="/programa")),
                             ],
