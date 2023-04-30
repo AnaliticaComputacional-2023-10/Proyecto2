@@ -229,6 +229,56 @@ def update_graph(xaxis_column_name, yaxis_column_name):
                          )
         return fig_bar
 
+@app.callback(
+    Output('indicator-graphic', 'figure'),
+    Input('xaxis-column', 'value'),
+    Input('yaxis-column', 'value')
+)
+def update_graph(xaxis_column_name, yaxis_column_name):
+
+    categoricas = ['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'heartdis']
+    numericas = ['age', 'trestbps', 'chol', 'thalach', 'oldpeak']
+
+    if xaxis_column_name in numericas and yaxis_column_name in numericas:
+        fig_disp = px.scatter(df, x=xaxis_column_name, y=yaxis_column_name)
+        return fig_disp
+
+    elif xaxis_column_name in categoricas and yaxis_column_name in categoricas:
+        fig_cat = px.bar(df, x=xaxis_column_name, y=yaxis_column_name,
+                             barmode='group')
+        return fig_cat
+
+    else:
+        fig_bar = px.violin(df, x=xaxis_column_name, y=yaxis_column_name,
+                         color=xaxis_column_name
+                         )
+        return fig_bar
+
+@app.callback(
+    Output('indicator-graphic', 'figure'),
+    Input('xaxis-column', 'value'),
+    Input('yaxis-column', 'value')
+)
+def update_graph(xaxis_column_name, yaxis_column_name):
+
+    categoricas = ['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'heartdis']
+    numericas = ['age', 'trestbps', 'chol', 'thalach', 'oldpeak']
+
+    if xaxis_column_name in numericas and yaxis_column_name in numericas:
+        fig_disp = px.scatter(df, x=xaxis_column_name, y=yaxis_column_name)
+        return fig_disp
+
+    elif xaxis_column_name in categoricas and yaxis_column_name in categoricas:
+        fig_cat = px.bar(df, x=xaxis_column_name, y=yaxis_column_name,
+                             barmode='group')
+        return fig_cat
+
+    else:
+        fig_bar = px.violin(df, x=xaxis_column_name, y=yaxis_column_name,
+                         color=xaxis_column_name
+                         )
+        return fig_bar
+
 
 
 
