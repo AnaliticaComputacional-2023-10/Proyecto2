@@ -11,7 +11,7 @@ import plotly.express as px
 columnas = ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg',
             'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal', 'num']
 
-df = pd.read_csv("./Data/processed.cleveland.data", names = columnas)
+df = pd.read_csv("./Data/Original/processed.cleveland.data", names = columnas)
 
 df.age = df.age.astype(int)
 df.sex = df.sex.astype(int)
@@ -52,10 +52,12 @@ df.heartdis = df.heartdis.astype(int)
 df.drop(['num', 'caNull', 'thalNull'], axis=1, inplace=True)
 
 variable = df.columns
-diccionario = {'Edad': 'age', 'Sexo': 'sex', 'Dolor en Pecho': 'cp'}
-
-columnas = ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg',
-            'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal', 'num']
+diccionario = {'Edad': 'age', 'Sexo': 'sex', 'Dolor en Pecho': 'cp', 'Presión arterial en reposo': 'trestbps',
+               'Colesterol serico': 'chol', 'Azucar en sangre en ayunas': 'fbs',
+               'Resultados electrocardiograficos en reposo': 'restecg', 'Frecuencia cardiaca maxima': 'thalach',
+               'Angina inducida por ejercicio': 'exang', 'Depresión del segmento ST': 'oldpeak',
+               'Pendiente del segmento ST': 'slope', 'Vasos coloreados por fluoroscopia': 'ca',
+               'Talasemia': 'thal', 'Presencia de enfermedad cardiaca': 'heartdis'}
 
 #Layout
 graficas_layout = html.Div(children=[
@@ -75,7 +77,7 @@ graficas_layout = html.Div(children=[
                 #Eje Y
                 dbc.Col(
                     html.Div([
-                        html.Label('Seleccione un valor para el eje Y:'),
+                        html.Label('Seleccione un valor para el eje X:'),
                         dcc.Dropdown(
                             id='xaxis-column',
                             options=[{'label': i, 'value': diccionario[i]} for i in diccionario],
@@ -86,7 +88,7 @@ graficas_layout = html.Div(children=[
                 #Eje X
                 dbc.Col(
                     html.Div([
-                        html.Label('Seleccione un valor para el eje X:'),
+                        html.Label('Seleccione un valor para el eje Y:'),
                         dcc.Dropdown(
                             id='yaxis-column',
                             options=[{'label': i, 'value': diccionario[i]} for i in diccionario],
@@ -119,14 +121,29 @@ graficas_layout = html.Div(children=[
 )
 def update_graph(xaxis_column_name, yaxis_column_name):
 
-    fig = px.scatter(df, x=xaxis_column_name, y=yaxis_column_name,
-                 color='heartdis',
-                 hover_data=variable,
-                 color_discrete_sequence=['red', 'blue'])
+    categoricas = ['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'heartdis']
+    numericas = ['age', 'trestbps', 'chol', 'thalach', 'oldpeak']
 
-    fig.update_layout(transition_duration=500)
+    if xaxis_column_name in numericas and yaxis_column_name in numericas:
+        fig_disp = px.scatter(df, x=xaxis_column_name, y=yaxis_column_name,
+                              color='heartdis')
+        return fig_disp
 
-    return fig
+    elif xaxis_column_name in categoricas and yaxis_column_name in categoricas:
+        fig_cat = px.bar(df, x=xaxis_column_name, y=yaxis_column_name,
+                             color = 'heartdis',
+                             barmode='group')
+        return fig_cat
+
+    else:
+        fig_bar = px.bar(df, x=xaxis_column_name, y=yaxis_column_name,
+                         color='heartdis',
+                         barmode='group')
+        return fig_bar
+
+
+
+
 
 
 

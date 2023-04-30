@@ -229,7 +229,7 @@ programa_layout = html.Div(children=[
 columnas = ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg',
             'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal', 'num']
 
-df = pd.read_csv("./Data/processed.cleveland.data", names=columnas)
+df = pd.read_csv("./Data/Original/processed.cleveland.data", names=columnas)
 
 df.age = df.age.astype(int)
 df.sex = df.sex.astype(int)
