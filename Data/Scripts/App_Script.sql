@@ -1,4 +1,21 @@
-INSERT INTO pacientes (age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal, heartdis) VALUES
+
+CREATE TABLE personas (
+    age INT,
+    sex INT,
+    cp INT,
+    trestbps INT,
+    chol INT,
+    fbs INT,
+    restecg INT,
+    thalach INT,
+    exang INT,
+    oldpeak INT,
+    slope INT,
+    ca INT,
+    thal INT,
+    heartdis INT
+);
+INSERT INTO personas (age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal, heartdis) VALUES
 (4, 1, 1, 2, 1, 1, 2, 1, 0, 5, 3, 0, 6, 0),
 (4, 1, 4, 2, 2, 0, 2, 1, 1, 4, 2, 3, 3, 1),
 (4, 1, 4, 1, 1, 0, 2, 1, 1, 5, 2, 2, 7, 1),
