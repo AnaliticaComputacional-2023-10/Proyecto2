@@ -52,12 +52,15 @@ df.heartdis = df.heartdis.astype(int)
 df.drop(['num', 'caNull', 'thalNull'], axis=1, inplace=True)
 
 variable = df.columns
-diccionario = {'Edad': 'age', 'Sexo': 'sex', 'Dolor en Pecho': 'cp', 'Presión arterial en reposo': 'trestbps',
-               'Colesterol serico': 'chol', 'Azucar en sangre en ayunas': 'fbs',
-               'Resultados electrocardiograficos en reposo': 'restecg', 'Frecuencia cardiaca maxima': 'thalach',
-               'Angina inducida por ejercicio': 'exang', 'Depresión del segmento ST': 'oldpeak',
-               'Pendiente del segmento ST': 'slope', 'Vasos coloreados por fluoroscopia': 'ca',
-               'Talasemia': 'thal', 'Presencia de enfermedad cardiaca': 'heartdis'}
+diccionario_cat = {'Sexo': 'sex', 'Tipo de dolor en el Pecho': 'cp','Azucar en sangre en ayunas': 'fbs',
+               'Resultados electrocardiograficos en reposo': 'restecg',
+               'Angina inducida por ejercicio': 'exang','Pendiente del segmento ST': 'slope',
+               'Numero de vasos coloreados': 'ca','Talasemia': 'thal',
+               'Presencia de enfermedad cardiaca': 'heartdis'}
+
+diccionario_num = {'Edad': 'age', 'Sexo': 'sex', 'Presión arterial en reposo': 'trestbps',
+               'Colesterol serico': 'chol','Frecuencia cardiaca maxima': 'thalach',
+               'Depresión del segmento ST': 'oldpeak'}
 
 #Layout
 graficas_layout = html.Div(children=[
@@ -67,10 +70,13 @@ graficas_layout = html.Div(children=[
     html.Br(),
 
     #Titulo de la pagina
-    html.H1(children = '''¿Cómo se comportan nuestras variables?''',
+    html.H1(children = '''¿Cómo se comportan las variables?''',
             style={'textAlign': 'center'}),
     html.Br(),
 
+    #Categoricas vs Categoricas
+    html.H4(children = '''Graficas variables Categoricas vs Categoricas''',
+            style={'textAlign': 'center'}),
     html.Div(
         dbc.Row(
             [
@@ -80,8 +86,8 @@ graficas_layout = html.Div(children=[
                         html.Label('Seleccione un valor para el eje X:'),
                         dcc.Dropdown(
                             id='xaxis-column',
-                            options=[{'label': i, 'value': diccionario[i]} for i in diccionario],
-                            value='age'
+                            options=[{'label': i, 'value': diccionario_cat[i]} for i in diccionario_cat],
+                            value='sex'
                         )
                     ],style={'width': '30rem', 'display': 'inline-block'}),
                 ),
@@ -91,8 +97,8 @@ graficas_layout = html.Div(children=[
                         html.Label('Seleccione un valor para el eje Y:'),
                         dcc.Dropdown(
                             id='yaxis-column',
-                            options=[{'label': i, 'value': diccionario[i]} for i in diccionario],
-                            value='sex'
+                            options=[{'label': i, 'value': diccionario_cat[i]} for i in diccionario_cat],
+                            value='cp'
                         )
                     ],style={'width': '30rem', 'float': 'right', 'display': 'inline-block'})
                 ),
@@ -109,9 +115,93 @@ graficas_layout = html.Div(children=[
         children=[
             dcc.Graph(id='indicator-graphic'),
     ]),
+    html.Br(),
 
+    #Categoricas vs Numericas
+    html.H4(children = '''Graficas variables Categoricas vs Numericas''',
+            style={'textAlign': 'center'}),
+    html.Div(
+        dbc.Row(
+            [
+                #Eje Y
+                dbc.Col(
+                    html.Div([
+                        html.Label('Seleccione un valor para el eje X:'),
+                        dcc.Dropdown(
+                            id='xaxis-column',
+                            options=[{'label': i, 'value': diccionario_cat[i]} for i in diccionario_cat],
+                            value='sex'
+                        )
+                    ],style={'width': '30rem', 'display': 'inline-block'}),
+                ),
+                #Eje X
+                dbc.Col(
+                    html.Div([
+                        html.Label('Seleccione un valor para el eje Y:'),
+                        dcc.Dropdown(
+                            id='yaxis-column',
+                            options=[{'label': i, 'value': diccionario_num[i]} for i in diccionario_num],
+                            value='age'
+                        )
+                    ],style={'width': '30rem', 'float': 'right', 'display': 'inline-block'})
+                ),
+            ],
+            className="mt-4",
+        ),
+        style={'display': 'flex',
+              'justify-content': 'center'}
+    ),
+
+    #Grafica
+    html.Div(
+        style={'textAlign': 'center','margin': '50px auto','maxWidth': '1200px'},
+        children=[
+            dcc.Graph(id='indicator-graphic'),
+    ]),
+    html.Br(),
+
+    #Numericas vs Numericas
+    html.H4(children = '''Graficas variables Numericas vs Numericas''',
+            style={'textAlign': 'center'}),
+    html.Div(
+        dbc.Row(
+            [
+                #Eje Y
+                dbc.Col(
+                    html.Div([
+                        html.Label('Seleccione un valor para el eje X:'),
+                        dcc.Dropdown(
+                            id='xaxis-column',
+                            options=[{'label': i, 'value': diccionario_num[i]} for i in diccionario_num],
+                            value='age'
+                        )
+                    ],style={'width': '30rem', 'display': 'inline-block'}),
+                ),
+                #Eje X
+                dbc.Col(
+                    html.Div([
+                        html.Label('Seleccione un valor para el eje Y:'),
+                        dcc.Dropdown(
+                            id='yaxis-column',
+                            options=[{'label': i, 'value': diccionario_num[i]} for i in diccionario_num],
+                            value='oldpeak'
+                        )
+                    ],style={'width': '30rem', 'float': 'right', 'display': 'inline-block'})
+                ),
+            ],
+            className="mt-4",
+        ),
+        style={'display': 'flex',
+              'justify-content': 'center'}
+    ),
+
+    #Grafica
+    html.Div(
+        style={'textAlign': 'center','margin': '50px auto','maxWidth': '1200px'},
+        children=[
+            dcc.Graph(id='indicator-graphic'),
+    ]),
     html.Br()
-
 ])
 
 @app.callback(
@@ -125,20 +215,18 @@ def update_graph(xaxis_column_name, yaxis_column_name):
     numericas = ['age', 'trestbps', 'chol', 'thalach', 'oldpeak']
 
     if xaxis_column_name in numericas and yaxis_column_name in numericas:
-        fig_disp = px.scatter(df, x=xaxis_column_name, y=yaxis_column_name,
-                              color='heartdis')
+        fig_disp = px.scatter(df, x=xaxis_column_name, y=yaxis_column_name)
         return fig_disp
 
     elif xaxis_column_name in categoricas and yaxis_column_name in categoricas:
         fig_cat = px.bar(df, x=xaxis_column_name, y=yaxis_column_name,
-                             color = 'heartdis',
                              barmode='group')
         return fig_cat
 
     else:
-        fig_bar = px.bar(df, x=xaxis_column_name, y=yaxis_column_name,
-                         color='heartdis',
-                         barmode='group')
+        fig_bar = px.violin(df, x=xaxis_column_name, y=yaxis_column_name,
+                         color=xaxis_column_name
+                         )
         return fig_bar
 
 
