@@ -4,16 +4,16 @@
 # -------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------------------------
 
-from dash import html
-from dash import dcc
-from dash.dependencies import Input, Output, State
-from apps import navigation
 from app import app
+from apps import navigation
+from dash import dcc
+from dash import html
+from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
 import pandas as pd
 from pgmpy.inference import VariableElimination
-import plotly.express as px
 from pgmpy.readwrite import BIFReader
+import plotly.express as px
 
 
 # -------------------------------------------------------------------------------------------------------------------
@@ -650,8 +650,6 @@ def generate_matrix(age, sex_male, resting_bp, maximum_hr, serum_cholesterol, fa
     evidence = {key: str(value)
                 for (key, value) in discrete_valores_nodes.items()}
 
-    print(evidence)
-
     # ------------------------------------------------
     # Sin evidencia, no se hace inferencia
     # ------------------------------------------------
@@ -676,8 +674,6 @@ def generate_matrix(age, sex_male, resting_bp, maximum_hr, serum_cholesterol, fa
 
     except:
         prob = None
-
-    print(prob)
 
     # ------------------------------------------------
     # Error en la inferencia

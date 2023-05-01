@@ -1,8 +1,13 @@
-from dash import html
-from dash import dcc
-from dash.dependencies import Input, Output
+# -------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+# LIBRARIES
+# -------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
 
 from app import app
+from dash import dcc
+from dash import html
+from dash.dependencies import Input, Output
 from pages import inicio, instrucciones, programa, graficas
 
 url_contente_layout = html.Div(children=[

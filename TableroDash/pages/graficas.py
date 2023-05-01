@@ -4,17 +4,16 @@
 # -------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------------------------
 
-from dash import html
-from apps import navigation
 from app import app
-from dash import html
+from apps import navigation
 from dash import dcc
-import pandas as pd
-import dash_bootstrap_components as dbc
+from dash import html
 from dash.dependencies import Input, Output
+import dash_bootstrap_components as dbc
+from dotenv import dotenv_values
+import pandas as pd
 import plotly.express as px
 import psycopg2
-from dotenv import dotenv_values
 
 # -------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------------------------
