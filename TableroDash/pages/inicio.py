@@ -17,50 +17,86 @@ Universidad de California en Irvine.'''
 
 texto3 = 'Aplicación creada por Santiago González y Juliana Cárdenas.'
 
+# -------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+# LAYOUT
+# -------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+
+
 inicio_layout = html.Div(children=[
 
-    #Barra de Navegación
+    # ------------------------------------------------
+    # Barra de Navegacion
+    # ------------------------------------------------
+
     navigation.navbar,
     html.Br(),
 
-    #Titulo de la pagina
-    html.H1(children = '''Bienvenido al Programa de Predicción de Enfermedades Cardíacas''',
+    # ------------------------------------------------
+    # Titulo
+    # ------------------------------------------------
+
+    html.H1(children='''Bienvenido al Programa de Predicción de Enfermedades Cardíacas''',
             style={'textAlign': 'center'}),
     html.Br(),
 
     html.Br(),
 
-    #Parrafo
+    # ------------------------------------------------
+    # Parrafo Descripcion
+    # ------------------------------------------------
+
     html.Div(children=[
-        html.Img(src='/assets/img1.png', style={'height': '20%', 'width': '20%','margin-right':'10px'}),
+        html.Img(src='/assets/img1.png',
+                 style={'height': '20%', 'width': '20%', 'margin-right': '10px'}),
         html.Div(children=[
-            html.Pre(texto, style={'text-align': 'center','padding':'1px'})
+            html.Pre(texto, style={'text-align': 'center', 'padding': '1px'})
         ], style={'margin-left': '10px'})
     ],
-    style={'display': 'flex',
-           'align-items': 'center',
-           'justify-content': 'flex-start',
-           'margin-left': '130px'}),
+        style={'display': 'flex',
+               'align-items': 'center',
+               'justify-content': 'flex-start',
+               'margin-left': '130px'}),
     html.Br(),
     html.Br(),
-    #Botones para ir de la pagina de inicio a las instrucciones y programa
+
+    # ------------------------------------------------
+    # Botones
+    # ------------------------------------------------
+
     html.Div(children=[
+
+        # ------------------------------------------------
+        # Instrucciones
+        # ------------------------------------------------
+
         html.Div(children=[
             dbc.Button("Instrucciones", size="lg", id="inicio_instrucciones", href="/instrucciones",
                        style={'margin-right': '2px', 'verticalAlign': 'middle'})],
-            style={'display': 'inline-flex'}),
+                 style={'display': 'inline-flex'}),
+
+        # ------------------------------------------------
+        # Programa
+        # ------------------------------------------------
+
         html.Div(children=[
             dbc.Button("Programa", size="lg", id="inicio_programa", href="/programa",
                        style={'margin-left': '10px', 'verticalAlign': 'middle'})],
-            style={'display': 'inline-flex'}),
+                 style={'display': 'inline-flex'}),
+
+        # ------------------------------------------------
+        # Graficas
+        # ------------------------------------------------
+
         html.Div(children=[
             dbc.Button("Graficas", size="lg", id="inicio_graficas", href="/graficas",
                        style={'margin-left': '10px', 'verticalAlign': 'middle'})],
-            style={'display': 'inline-flex'})
-            ],
+                 style={'display': 'inline-flex'})
+    ],
         style={'margin-bottom': '10px',
-              'display': 'flex',
-              'justify-content': 'center'}),
+               'display': 'flex',
+               'justify-content': 'center'}),
     html.Br(),
     html.Div(html.Pre(texto3, style={'text-align': 'center'}))
 ])
