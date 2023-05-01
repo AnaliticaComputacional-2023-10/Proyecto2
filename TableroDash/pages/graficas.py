@@ -1,3 +1,9 @@
+# -------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+# LIBRARIES
+# -------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+
 from dash import html
 from apps import navigation
 from app import app
@@ -7,202 +13,301 @@ import pandas as pd
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 import plotly.express as px
+import psycopg2
+from dotenv import dotenv_values
 
-columnas = ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg',
-            'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal', 'num']
+# -------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+# DATABASE
+# -------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
 
-df = pd.read_csv("./Data/Original/processed.cleveland.data", names = columnas)
 
-df.age = df.age.astype(int)
-df.sex = df.sex.astype(int)
-df.cp = df.cp.astype(int)
-df.trestbps = df.trestbps.astype(int)
-df.chol = df.chol.astype(int)
-df.fbs = df.fbs.astype(int)
-df.restecg = df.restecg.astype(int)
-df.thalach = df.thalach.astype(int)
-df.exang = df.exang.astype(int)
-df.slope = df.slope.astype(int)
+# ------------------------------------------------
+# Mostrar el resultado como un pandas DataFrame
+# ------------------------------------------------
 
-# ------------
-# Null values
-# ------------
+# Ejecutar la query
 
-df['caNull'] = df['ca']
-df.loc[df['caNull'] == '?', 'ca'] = float(df.ca.mode()[0])
-df.loc[df['caNull'] != '?', 'ca'] = df['ca']
-df['ca'] = pd.to_numeric(df['ca']).astype('int32')
+def execute(query: str, cursor: (psycopg2.extensions.cursor)):
+    cursor.execute(query)
+    result = cursor.fetchall()
+    return result
 
-df['thalNull'] = df['thal']
-df.loc[df['thalNull'] == '?', 'thal'] = float(df.thal.mode()[0])
-df.loc[df['thalNull'] != '?', 'thal'] = df['thal']
-df['thal'] = pd.to_numeric(df['thal']).astype('int32')
 
-# ------------
-# Target
-# ------------
+# Hallar los atributos
 
-df.loc[df['num'] == 0, 'heartdis'] = 0
-df.loc[df['num'] != 0, 'heartdis'] = 1
-df.heartdis = df.heartdis.astype(int)
+def getColumnNames(cursor):
+    columns = [i[0] for i in cursor.description]
+    return columns
 
-# ------------
-# Drop columns
-# ------------
-df.drop(['num', 'caNull', 'thalNull'], axis=1, inplace=True)
 
-variable = df.columns
-diccionario_cat = {'Sexo': 'sex', 'Tipo de dolor en el Pecho': 'cp','Azucar en sangre en ayunas': 'fbs',
-               'Resultados electrocardiograficos en reposo': 'restecg',
-               'Angina inducida por ejercicio': 'exang','Pendiente del segmento ST': 'slope',
-               'Numero de vasos coloreados': 'ca','Talasemia': 'thal',
-               'Presencia de enfermedad cardiaca': 'heartdis'}
+# Mostrar como DataFrame
 
-diccionario_num = {'Edad': 'age', 'Presión arterial en reposo': 'trestbps',
-               'Colesterol serico': 'chol','Frecuencia cardiaca maxima': 'thalach',
-               'Depresión del segmento ST': 'oldpeak'}
+def pdsql(query: str, connection: (psycopg2.extensions.connection)):
+    try:
+        cursor = connection.cursor()
+        result = execute(query, cursor)
+        columns = getColumnNames(cursor)
+        df = pd.DataFrame(result, columns=columns)
+        return df
+    except Exception:
+        connection.commit()
+        return "Query Error"
 
-#Layout
+
+# ------------------------------------------------
+# Get the credentials of the database
+# ------------------------------------------------
+
+env_path = './env/visualization.env'
+
+env_vars = dotenv_values(dotenv_path=env_path)
+
+HOST = env_vars['HOST']
+PORT = env_vars['PORT']
+USER = env_vars['USER']
+PASSWORD = env_vars['PASSWORD']
+DBNAME = env_vars['DBNAME']
+
+
+# ------------------------------------------------
+# Connect to the database
+# ------------------------------------------------
+
+connection = psycopg2.connect(
+    host=HOST,
+    port=PORT,
+    user=USER,
+    password=PASSWORD,
+    dbname=DBNAME,
+)
+
+
+# ------------------------------------------------
+# Get the data from the database
+# ------------------------------------------------
+
+query = """
+SELECT *
+FROM personas
+;
+"""
+df = pdsql(query, connection)
+
+
+# ------------------------------------------------
+# Close connection to the database
+# ------------------------------------------------
+
+connection.close
+
+
+# -------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+# VARIABLES CLASSIFICATION
+# -------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+
+diccionario_cat = {
+    'Sexo': 'sex',
+    'Tipo de dolor en el Pecho': 'cp',
+    'Azucar en sangre en ayunas': 'fbs',
+    'Resultados electrocardiograficos en reposo': 'restecg',
+    'Angina inducida por ejercicio': 'exang',
+    'Pendiente del segmento ST': 'slope',
+    'Numero de vasos coloreados': 'ca',
+    'Talasemia': 'thal',
+    'Presencia de enfermedad cardiaca': 'heartdis'
+}
+
+diccionario_num = {
+    'Edad': 'age',
+    'Presión arterial en reposo': 'trestbps',
+    'Colesterol serico': 'chol',
+    'Frecuencia cardiaca maxima': 'thalach',
+    'Depresión del segmento ST': 'oldpeak'
+}
+
+# -------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+# Layout
+# -------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+
 graficas_layout = html.Div(children=[
 
-    #Barra de Navegación
+    # ------------------------------------------------
+    # Barra de Navegación
+    # ------------------------------------------------
+
     navigation.navbar,
     html.Br(),
 
-    #Titulo de la pagina
-    html.H1(children = '''¿Cómo se comportan las variables?''',
+    # ------------------------------------------------
+    # Titulo de la pagina
+    # ------------------------------------------------
+
+    html.H1(children='''¿Cómo se comportan las variables?''',
             style={'textAlign': 'center'}),
     html.Br(),
 
-    #Categoricas vs Categoricas
-    html.H4(children = '''Graficas variables Categoricas vs Categoricas''',
+    # ------------------------------------------------
+    # Categoricas vs Categoricas
+    # ------------------------------------------------
+
+    html.H4(children='''Graficas variables Categoricas vs Categoricas''',
             style={'textAlign': 'center'}),
     html.Div(
         dbc.Row(
             [
-                #Eje Y
+                # Eje Y
                 dbc.Col(
                     html.Div([
                         html.Label('Seleccione un valor para el eje X:'),
                         dcc.Dropdown(
                             id='graph-x1',
-                            options=[{'label': i, 'value': diccionario_cat[i]} for i in diccionario_cat],
+                            options=[{'label': i, 'value': diccionario_cat[i]}
+                                     for i in diccionario_cat],
                             value='sex'
                         )
-                    ],style={'width': '30rem', 'display': 'inline-block'}),
+                    ], style={'width': '30rem', 'display': 'inline-block'}),
                 ),
-                #Eje X
+                # Eje X
                 dbc.Col(
                     html.Div([
                         html.Label('Seleccione un valor para el eje Y:'),
                         dcc.Dropdown(
                             id='graph-y1',
-                            options=[{'label': i, 'value': diccionario_cat[i]} for i in diccionario_cat],
+                            options=[{'label': i, 'value': diccionario_cat[i]}
+                                     for i in diccionario_cat],
                             value='cp'
                         )
-                    ],style={'width': '30rem', 'float': 'right', 'display': 'inline-block'})
+                    ], style={'width': '30rem', 'float': 'right', 'display': 'inline-block'})
                 ),
             ],
             className="mt-4",
         ),
         style={'display': 'flex',
-              'justify-content': 'center'}
+               'justify-content': 'center'}
     ),
 
-    #Grafica
+    # Grafica
     html.Div(
-        style={'textAlign': 'center','margin': '50px auto','maxWidth': '1200px'},
+        style={'textAlign': 'center',
+               'margin': '50px auto', 'maxWidth': '1200px'},
         children=[
             dcc.Graph(id='graphic-catcat'),
-    ]),
+        ]),
     html.Br(),
 
-    #Categoricas vs Numericas
-    html.H4(children = '''Graficas variables Categoricas vs Numericas''',
+    # ------------------------------------------------
+    # Categoricas vs Numericas
+    # ------------------------------------------------
+
+    html.H4(children='''Graficas variables Categoricas vs Numericas''',
             style={'textAlign': 'center'}),
     html.Div(
         dbc.Row(
             [
-                #Eje Y
+                # Eje Y
                 dbc.Col(
                     html.Div([
                         html.Label('Seleccione un valor para el eje X:'),
                         dcc.Dropdown(
                             id='graph-x2',
-                            options=[{'label': i, 'value': diccionario_cat[i]} for i in diccionario_cat],
+                            options=[{'label': i, 'value': diccionario_cat[i]}
+                                     for i in diccionario_cat],
                             value='sex'
                         )
-                    ],style={'width': '30rem', 'display': 'inline-block'}),
+                    ], style={'width': '30rem', 'display': 'inline-block'}),
                 ),
-                #Eje X
+                # Eje X
                 dbc.Col(
                     html.Div([
                         html.Label('Seleccione un valor para el eje Y:'),
                         dcc.Dropdown(
                             id='graph-y2',
-                            options=[{'label': i, 'value': diccionario_num[i]} for i in diccionario_num],
+                            options=[{'label': i, 'value': diccionario_num[i]}
+                                     for i in diccionario_num],
                             value='age'
                         )
-                    ],style={'width': '30rem', 'float': 'right', 'display': 'inline-block'})
+                    ], style={'width': '30rem', 'float': 'right', 'display': 'inline-block'})
                 ),
             ],
             className="mt-4",
         ),
         style={'display': 'flex',
-              'justify-content': 'center'}
+               'justify-content': 'center'}
     ),
 
-    #Grafica
+    # Grafica
     html.Div(
-        style={'textAlign': 'center','margin': '50px auto','maxWidth': '1200px'},
+        style={'textAlign': 'center',
+               'margin': '50px auto', 'maxWidth': '1200px'},
         children=[
             dcc.Graph(id='graphic-catnum'),
-    ]),
+        ]),
     html.Br(),
 
-    #Numericas vs Numericas
-    html.H4(children = '''Graficas variables Numericas vs Numericas''',
+    # ------------------------------------------------
+    # Numericas vs Numericas
+    # ------------------------------------------------
+
+    html.H4(children='''Graficas variables Numericas vs Numericas''',
             style={'textAlign': 'center'}),
     html.Div(
         dbc.Row(
             [
-                #Eje Y
+                # Eje Y
                 dbc.Col(
                     html.Div([
                         html.Label('Seleccione un valor para el eje X:'),
                         dcc.Dropdown(
                             id='graph-x3',
-                            options=[{'label': i, 'value': diccionario_num[i]} for i in diccionario_num],
+                            options=[{'label': i, 'value': diccionario_num[i]}
+                                     for i in diccionario_num],
                             value='age'
                         )
-                    ],style={'width': '30rem', 'display': 'inline-block'}),
+                    ], style={'width': '30rem', 'display': 'inline-block'}),
                 ),
-                #Eje X
+                # Eje X
                 dbc.Col(
                     html.Div([
                         html.Label('Seleccione un valor para el eje Y:'),
                         dcc.Dropdown(
                             id='graph-y3',
-                            options=[{'label': i, 'value': diccionario_num[i]} for i in diccionario_num],
+                            options=[{'label': i, 'value': diccionario_num[i]}
+                                     for i in diccionario_num],
                             value='oldpeak'
                         )
-                    ],style={'width': '30rem', 'float': 'right', 'display': 'inline-block'})
+                    ], style={'width': '30rem', 'float': 'right', 'display': 'inline-block'})
                 ),
             ],
             className="mt-4",
         ),
         style={'display': 'flex',
-              'justify-content': 'center'}
+               'justify-content': 'center'}
     ),
 
-    #Grafica
+    # Grafica
     html.Div(
-        style={'textAlign': 'center','margin': '50px auto','maxWidth': '1200px'},
+        style={'textAlign': 'center',
+               'margin': '50px auto', 'maxWidth': '1200px'},
         children=[
             dcc.Graph(id='graphic-numnum'),
-    ]),
+        ]),
     html.Br(),
 ])
+
+# -------------------------------------------------------------------------------------------------------------------
+# CALLBACKS
+# -------------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------
+# Categoricas vs Categoricas
+# ------------------------------------------------
+
 
 @app.callback(
     Output('graphic-catcat', 'figure'),
@@ -212,8 +317,13 @@ graficas_layout = html.Div(children=[
 def update_graph(xaxis_column_name, yaxis_column_name):
 
     fig_cat = px.histogram(df, x=xaxis_column_name, y=yaxis_column_name,
-                     color=yaxis_column_name, barmode='group',histfunc='count')
+                           color=yaxis_column_name, barmode='group', histfunc='count')
+
     return fig_cat
+
+# ------------------------------------------------
+# Categoricas vs Numericas
+# ------------------------------------------------
 
 
 @app.callback(
@@ -224,9 +334,14 @@ def update_graph(xaxis_column_name, yaxis_column_name):
 def update_graph(xaxis_column_name, yaxis_column_name):
 
     fig_bar = px.violin(df, x=xaxis_column_name, y=yaxis_column_name,
-                         color=xaxis_column_name
-                         )
+                        color=xaxis_column_name
+                        )
     return fig_bar
+
+# ------------------------------------------------
+# Numericas vs Numericas
+# ------------------------------------------------
+
 
 @app.callback(
     Output('graphic-numnum', 'figure'),
@@ -238,11 +353,3 @@ def update_graph(xaxis_column_name, yaxis_column_name):
     fig_disp = px.scatter(df, x=xaxis_column_name, y=yaxis_column_name)
 
     return fig_disp
-
-
-
-
-
-
-
-
