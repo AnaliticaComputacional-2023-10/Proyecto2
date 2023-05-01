@@ -58,7 +58,7 @@ diccionario_cat = {'Sexo': 'sex', 'Tipo de dolor en el Pecho': 'cp','Azucar en s
                'Numero de vasos coloreados': 'ca','Talasemia': 'thal',
                'Presencia de enfermedad cardiaca': 'heartdis'}
 
-diccionario_num = {'Edad': 'age', 'Sexo': 'sex', 'Presión arterial en reposo': 'trestbps',
+diccionario_num = {'Edad': 'age', 'Presión arterial en reposo': 'trestbps',
                'Colesterol serico': 'chol','Frecuencia cardiaca maxima': 'thalach',
                'Depresión del segmento ST': 'oldpeak'}
 
@@ -85,7 +85,7 @@ graficas_layout = html.Div(children=[
                     html.Div([
                         html.Label('Seleccione un valor para el eje X:'),
                         dcc.Dropdown(
-                            id='xaxis-column',
+                            id='graph-x1',
                             options=[{'label': i, 'value': diccionario_cat[i]} for i in diccionario_cat],
                             value='sex'
                         )
@@ -96,7 +96,7 @@ graficas_layout = html.Div(children=[
                     html.Div([
                         html.Label('Seleccione un valor para el eje Y:'),
                         dcc.Dropdown(
-                            id='yaxis-column',
+                            id='graph-y1',
                             options=[{'label': i, 'value': diccionario_cat[i]} for i in diccionario_cat],
                             value='cp'
                         )
@@ -113,7 +113,7 @@ graficas_layout = html.Div(children=[
     html.Div(
         style={'textAlign': 'center','margin': '50px auto','maxWidth': '1200px'},
         children=[
-            dcc.Graph(id='indicator-graphic'),
+            dcc.Graph(id='graphic-catcat'),
     ]),
     html.Br(),
 
@@ -128,7 +128,7 @@ graficas_layout = html.Div(children=[
                     html.Div([
                         html.Label('Seleccione un valor para el eje X:'),
                         dcc.Dropdown(
-                            id='xaxis-column',
+                            id='graph-x2',
                             options=[{'label': i, 'value': diccionario_cat[i]} for i in diccionario_cat],
                             value='sex'
                         )
@@ -139,7 +139,7 @@ graficas_layout = html.Div(children=[
                     html.Div([
                         html.Label('Seleccione un valor para el eje Y:'),
                         dcc.Dropdown(
-                            id='yaxis-column',
+                            id='graph-y2',
                             options=[{'label': i, 'value': diccionario_num[i]} for i in diccionario_num],
                             value='age'
                         )
@@ -156,7 +156,7 @@ graficas_layout = html.Div(children=[
     html.Div(
         style={'textAlign': 'center','margin': '50px auto','maxWidth': '1200px'},
         children=[
-            dcc.Graph(id='indicator-graphic'),
+            dcc.Graph(id='graphic-catnum'),
     ]),
     html.Br(),
 
@@ -171,7 +171,7 @@ graficas_layout = html.Div(children=[
                     html.Div([
                         html.Label('Seleccione un valor para el eje X:'),
                         dcc.Dropdown(
-                            id='xaxis-column',
+                            id='graph-x3',
                             options=[{'label': i, 'value': diccionario_num[i]} for i in diccionario_num],
                             value='age'
                         )
@@ -182,7 +182,7 @@ graficas_layout = html.Div(children=[
                     html.Div([
                         html.Label('Seleccione un valor para el eje Y:'),
                         dcc.Dropdown(
-                            id='yaxis-column',
+                            id='graph-y3',
                             options=[{'label': i, 'value': diccionario_num[i]} for i in diccionario_num],
                             value='oldpeak'
                         )
@@ -199,85 +199,46 @@ graficas_layout = html.Div(children=[
     html.Div(
         style={'textAlign': 'center','margin': '50px auto','maxWidth': '1200px'},
         children=[
-            dcc.Graph(id='indicator-graphic'),
+            dcc.Graph(id='graphic-numnum'),
     ]),
-    html.Br()
+    html.Br(),
 ])
 
 @app.callback(
-    Output('indicator-graphic', 'figure'),
-    Input('xaxis-column', 'value'),
-    Input('yaxis-column', 'value')
+    Output('graphic-catcat', 'figure'),
+    Input('graph-x1', 'value'),
+    Input('graph-y1', 'value')
 )
 def update_graph(xaxis_column_name, yaxis_column_name):
 
-    categoricas = ['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'heartdis']
-    numericas = ['age', 'trestbps', 'chol', 'thalach', 'oldpeak']
+    fig_cat = px.histogram(df, x=xaxis_column_name, y=yaxis_column_name,
+                     color=yaxis_column_name, barmode='group',histfunc='count')
+    return fig_cat
 
-    if xaxis_column_name in numericas and yaxis_column_name in numericas:
-        fig_disp = px.scatter(df, x=xaxis_column_name, y=yaxis_column_name)
-        return fig_disp
-
-    elif xaxis_column_name in categoricas and yaxis_column_name in categoricas:
-        fig_cat = px.bar(df, x=xaxis_column_name, y=yaxis_column_name,
-                             barmode='group')
-        return fig_cat
-
-    else:
-        fig_bar = px.violin(df, x=xaxis_column_name, y=yaxis_column_name,
-                         color=xaxis_column_name
-                         )
-        return fig_bar
 
 @app.callback(
-    Output('indicator-graphic', 'figure'),
-    Input('xaxis-column', 'value'),
-    Input('yaxis-column', 'value')
+    Output('graphic-catnum', 'figure'),
+    Input('graph-x2', 'value'),
+    Input('graph-y2', 'value')
 )
 def update_graph(xaxis_column_name, yaxis_column_name):
 
-    categoricas = ['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'heartdis']
-    numericas = ['age', 'trestbps', 'chol', 'thalach', 'oldpeak']
-
-    if xaxis_column_name in numericas and yaxis_column_name in numericas:
-        fig_disp = px.scatter(df, x=xaxis_column_name, y=yaxis_column_name)
-        return fig_disp
-
-    elif xaxis_column_name in categoricas and yaxis_column_name in categoricas:
-        fig_cat = px.bar(df, x=xaxis_column_name, y=yaxis_column_name,
-                             barmode='group')
-        return fig_cat
-
-    else:
-        fig_bar = px.violin(df, x=xaxis_column_name, y=yaxis_column_name,
+    fig_bar = px.violin(df, x=xaxis_column_name, y=yaxis_column_name,
                          color=xaxis_column_name
                          )
-        return fig_bar
+    return fig_bar
 
 @app.callback(
-    Output('indicator-graphic', 'figure'),
-    Input('xaxis-column', 'value'),
-    Input('yaxis-column', 'value')
+    Output('graphic-numnum', 'figure'),
+    Input('graph-x3', 'value'),
+    Input('graph-y3', 'value')
 )
 def update_graph(xaxis_column_name, yaxis_column_name):
 
-    categoricas = ['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'heartdis']
-    numericas = ['age', 'trestbps', 'chol', 'thalach', 'oldpeak']
+    fig_disp = px.scatter(df, x=xaxis_column_name, y=yaxis_column_name)
 
-    if xaxis_column_name in numericas and yaxis_column_name in numericas:
-        fig_disp = px.scatter(df, x=xaxis_column_name, y=yaxis_column_name)
-        return fig_disp
+    return fig_disp
 
-    elif xaxis_column_name in categoricas and yaxis_column_name in categoricas:
-        fig_cat = px.bar(df, x=xaxis_column_name, y=yaxis_column_name,
-                             barmode='group')
-        return fig_cat
-
-    else:
-        fig_bar = px.violin(df, x=xaxis_column_name, y=yaxis_column_name,
-                         color=xaxis_column_name
-                         )
-        return fig_bar
 
 
 
