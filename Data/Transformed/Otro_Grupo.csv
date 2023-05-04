@@ -1,0 +1,298 @@
+age_group,sex,cp,trestbps_group,chol_group,fbs,restecg,exang,slope,ca,thal,cardiac
+Mayor,1.0,1.0,presion arterial nivel 2,alto,1.0,2.0,0.0,3.0,0.0,6.0,False
+Mayor,1.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,1.0,2.0,3.0,3.0,True
+Mayor,1.0,4.0,elevada,alto,0.0,2.0,1.0,2.0,2.0,7.0,True
+Joven,1.0,3.0,presion arterial nivel 1,muy alto,0.0,0.0,0.0,3.0,0.0,3.0,False
+Joven,0.0,2.0,presion arterial nivel 1,alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,2.0,elevada,alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,0.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,3.0,2.0,3.0,True
+Mayor,0.0,4.0,elevada,muy alto,0.0,0.0,1.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 1,muy alto,0.0,2.0,0.0,2.0,1.0,7.0,True
+Mayor,1.0,4.0,presion arterial nivel 2,alto,1.0,2.0,1.0,3.0,0.0,7.0,True
+Mayor,1.0,4.0,presion arterial nivel 2,normal,0.0,0.0,0.0,2.0,0.0,6.0,False
+Mayor,0.0,2.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,2.0,0.0,3.0,False
+Mayor,1.0,3.0,presion arterial nivel 1,muy alto,1.0,2.0,1.0,2.0,1.0,6.0,True
+Joven,1.0,2.0,elevada,muy alto,0.0,0.0,0.0,1.0,0.0,7.0,False
+Mayor,1.0,3.0,presion arterial nivel 2,normal,1.0,0.0,0.0,1.0,0.0,7.0,False
+Mayor,1.0,3.0,presion arterial nivel 2,normal,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,2.0,normal,alto,0.0,0.0,0.0,3.0,0.0,7.0,True
+Mayor,1.0,4.0,presion arterial nivel 2,alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,0.0,3.0,presion arterial nivel 1,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,2.0,presion arterial nivel 1,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,1.0,normal,alto,0.0,2.0,1.0,2.0,0.0,3.0,False
+Mayor,0.0,1.0,presion arterial nivel 2,muy alto,1.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,2.0,elevada,muy alto,0.0,2.0,0.0,2.0,0.0,3.0,True
+Mayor,1.0,3.0,presion arterial nivel 1,alto,0.0,2.0,0.0,1.0,2.0,7.0,True
+Mayor,1.0,4.0,presion arterial nivel 1,alto,0.0,2.0,1.0,2.0,2.0,7.0,True
+Joven,0.0,3.0,elevada,alto,0.0,0.0,0.0,2.0,0.0,3.0,False
+Mayor,0.0,3.0,elevada,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,0.0,1.0,presion arterial nivel 2,alto,0.0,0.0,0.0,3.0,0.0,3.0,False
+Joven,1.0,4.0,presion arterial nivel 2,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,4.0,normal,normal,0.0,2.0,1.0,2.0,0.0,7.0,True
+Mayor,0.0,1.0,presion arterial nivel 2,alto,0.0,0.0,0.0,1.0,2.0,3.0,False
+Mayor,1.0,4.0,normal,alto,1.0,0.0,1.0,1.0,2.0,7.0,True
+Mayor,1.0,3.0,presion arterial nivel 2,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,True
+Mayor,1.0,4.0,presion arterial nivel 1,alto,0.0,0.0,0.0,2.0,0.0,7.0,False
+Joven,1.0,3.0,presion arterial nivel 1,alto,0.0,0.0,1.0,1.0,0.0,3.0,False
+Joven,1.0,4.0,presion arterial nivel 2,alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,4.0,elevada,normal,0.0,2.0,1.0,2.0,0.0,7.0,True
+Mayor,1.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,1.0,2.0,1.0,6.0,True
+Mayor,1.0,4.0,presion arterial nivel 1,muy alto,0.0,0.0,1.0,2.0,1.0,7.0,True
+Mayor,1.0,3.0,presion arterial nivel 2,muy alto,1.0,0.0,1.0,2.0,0.0,3.0,False
+Mayor,0.0,4.0,presion arterial nivel 2,alto,0.0,2.0,0.0,2.0,3.0,7.0,True
+Joven,1.0,1.0,presion arterial nivel 2,normal,0.0,0.0,1.0,1.0,0.0,7.0,False
+Mayor,0.0,2.0,presion arterial nivel 2,muy alto,0.0,0.0,0.0,1.0,2.0,3.0,False
+Mayor,1.0,3.0,presion arterial nivel 2,alto,1.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,0.0,4.0,presion arterial nivel 1,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,True
+Mayor,1.0,3.0,normal,alto,0.0,2.0,0.0,2.0,1.0,7.0,True
+Mayor,1.0,3.0,normal,normal,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,2.0,0.0,7.0,True
+Mayor,0.0,3.0,presion arterial nivel 2,muy alto,1.0,2.0,0.0,1.0,1.0,3.0,False
+Mayor,1.0,3.0,presion arterial nivel 1,normal,1.0,2.0,0.0,3.0,0.0,3.0,False
+Joven,0.0,2.0,normal,normal,0.0,0.0,0.0,1.0,1.0,3.0,False
+Mayor,1.0,4.0,elevada,normal,0.0,0.0,0.0,1.0,0.0,7.0,False
+Joven,1.0,4.0,normal,muy alto,0.0,2.0,0.0,1.0,1.0,3.0,True
+Joven,1.0,2.0,presion arterial nivel 1,alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 1,muy alto,0.0,0.0,1.0,1.0,1.0,7.0,True
+Mayor,1.0,4.0,elevada,muy alto,0.0,2.0,1.0,2.0,1.0,7.0,True
+Joven,1.0,3.0,presion arterial nivel 2,alto,0.0,0.0,0.0,2.0,1.0,7.0,True
+Joven,1.0,4.0,normal,normal,0.0,2.0,0.0,1.0,0.0,7.0,True
+Mayor,1.0,3.0,elevada,muy alto,0.0,2.0,0.0,3.0,1.0,3.0,False
+Mayor,1.0,1.0,elevada,alto,0.0,2.0,1.0,1.0,1.0,3.0,False
+Mayor,0.0,4.0,presion arterial nivel 1,muy alto,0.0,0.0,1.0,2.0,0.0,7.0,True
+Joven,0.0,3.0,presion arterial nivel 2,normal,0.0,2.0,1.0,3.0,0.0,3.0,False
+Mayor,1.0,4.0,elevada,alto,0.0,2.0,1.0,2.0,3.0,7.0,True
+Mayor,0.0,3.0,presion arterial nivel 1,muy alto,1.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,elevada,normal,0.0,0.0,0.0,2.0,1.0,7.0,True
+Mayor,1.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,1.0,2.0,2.0,7.0,True
+Mayor,1.0,3.0,presion arterial nivel 2,normal,0.0,2.0,0.0,2.0,0.0,3.0,True
+Mayor,1.0,3.0,presion arterial nivel 2,alto,0.0,2.0,0.0,1.0,0.0,7.0,False
+Mayor,1.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,1.0,3.0,0.0,7.0,True
+Joven,1.0,3.0,presion arterial nivel 2,alto,0.0,0.0,0.0,2.0,0.0,3.0,True
+Mayor,0.0,3.0,presion arterial nivel 2,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,elevada,muy alto,1.0,0.0,0.0,2.0,2.0,7.0,True
+Mayor,1.0,4.0,elevada,muy alto,0.0,0.0,1.0,2.0,2.0,7.0,True
+Mayor,1.0,4.0,normal,muy alto,0.0,2.0,0.0,1.0,2.0,6.0,True
+Joven,1.0,4.0,normal,normal,0.0,2.0,0.0,1.0,1.0,3.0,True
+Mayor,0.0,3.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,elevada,muy alto,0.0,2.0,1.0,2.0,1.0,7.0,True
+Mayor,0.0,3.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,1.0,1.0,3.0,False
+Joven,1.0,2.0,presion arterial nivel 1,muy alto,0.0,2.0,0.0,2.0,0.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,1.0,1.0,0.0,7.0,True
+Joven,1.0,4.0,normal,alto,0.0,2.0,1.0,2.0,0.0,3.0,False
+Mayor,0.0,4.0,presion arterial nivel 1,muy alto,0.0,2.0,0.0,2.0,0.0,3.0,False
+Joven,1.0,3.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,3.0,crisis,muy alto,1.0,2.0,1.0,2.0,0.0,7.0,True
+Mayor,1.0,2.0,elevada,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,3.0,presion arterial nivel 2,alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,3.0,presion arterial nivel 1,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,0.0,4.0,presion arterial nivel 1,alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,0.0,3.0,presion arterial nivel 1,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,elevada,muy alto,0.0,2.0,0.0,2.0,0.0,3.0,False
+Mayor,0.0,4.0,presion arterial nivel 2,normal,0.0,2.0,0.0,3.0,3.0,7.0,True
+Mayor,1.0,3.0,presion arterial nivel 1,alto,0.0,0.0,0.0,2.0,3.0,7.0,False
+Joven,0.0,3.0,normal,normal,0.0,0.0,0.0,2.0,0.0,3.0,False
+Mayor,0.0,3.0,presion arterial nivel 1,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,elevada,muy alto,0.0,0.0,1.0,1.0,1.0,7.0,True
+Mayor,1.0,4.0,normal,alto,0.0,2.0,1.0,2.0,1.0,7.0,True
+Mayor,0.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,2.0,2.0,7.0,True
+Mayor,1.0,2.0,presion arterial nivel 1,alto,0.0,0.0,0.0,1.0,1.0,3.0,False
+Joven,1.0,4.0,elevada,alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,4.0,normal,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,1.0,normal,normal,0.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,0.0,4.0,elevada,muy alto,0.0,2.0,0.0,1.0,1.0,3.0,False
+Mayor,0.0,3.0,normal,muy alto,1.0,2.0,0.0,1.0,1.0,3.0,False
+Joven,1.0,3.0,elevada,normal,0.0,0.0,0.0,2.0,3.0,7.0,True
+Mayor,1.0,2.0,normal,muy alto,0.0,0.0,0.0,1.0,0.0,7.0,False
+Mayor,1.0,4.0,presion arterial nivel 2,normal,0.0,0.0,1.0,1.0,1.0,7.0,True
+Mayor,1.0,3.0,elevada,alto,0.0,2.0,0.0,2.0,1.0,7.0,True
+Mayor,1.0,4.0,elevada,muy alto,0.0,0.0,1.0,2.0,1.0,7.0,True
+Joven,1.0,4.0,normal,alto,0.0,0.0,0.0,2.0,0.0,7.0,True
+Mayor,0.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,1.0,2.0,0.0,7.0,True
+Mayor,1.0,4.0,elevada,muy alto,1.0,2.0,1.0,2.0,1.0,3.0,True
+Mayor,1.0,1.0,normal,normal,0.0,2.0,0.0,2.0,0.0,6.0,False
+Joven,0.0,4.0,presion arterial nivel 1,muy alto,1.0,2.0,1.0,2.0,0.0,7.0,True
+Mayor,0.0,3.0,presion arterial nivel 1,muy alto,0.0,0.0,0.0,2.0,1.0,7.0,True
+Joven,1.0,2.0,presion arterial nivel 1,alto,0.0,0.0,0.0,2.0,0.0,6.0,False
+Mayor,1.0,3.0,presion arterial nivel 2,alto,1.0,2.0,0.0,1.0,0.0,3.0,False
+Joven,0.0,4.0,presion arterial nivel 1,normal,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 1,muy alto,1.0,2.0,1.0,1.0,3.0,7.0,True
+Mayor,1.0,4.0,presion arterial nivel 1,muy alto,0.0,2.0,0.0,2.0,1.0,7.0,True
+Joven,1.0,4.0,presion arterial nivel 1,muy alto,1.0,2.0,1.0,1.0,2.0,7.0,True
+Mayor,0.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,2.0,3.0,7.0,True
+Mayor,1.0,3.0,normal,alto,0.0,0.0,1.0,2.0,0.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 2,alto,0.0,0.0,1.0,3.0,0.0,7.0,True
+Mayor,1.0,1.0,presion arterial nivel 1,muy alto,1.0,2.0,0.0,2.0,1.0,3.0,True
+Joven,0.0,2.0,presion arterial nivel 1,alto,0.0,2.0,0.0,2.0,0.0,3.0,False
+Mayor,0.0,4.0,crisis,muy alto,1.0,2.0,1.0,3.0,2.0,7.0,True
+Mayor,1.0,4.0,normal,alto,0.0,0.0,1.0,2.0,1.0,7.0,True
+Joven,1.0,2.0,elevada,alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,0.0,4.0,elevada,alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,3.0,elevada,muy alto,0.0,2.0,0.0,2.0,0.0,7.0,False
+Mayor,1.0,3.0,normal,alto,0.0,0.0,1.0,1.0,1.0,7.0,False
+Joven,1.0,2.0,presion arterial nivel 1,alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,1.0,1.0,0.0,3.0,False
+Joven,0.0,3.0,elevada,alto,0.0,0.0,0.0,2.0,0.0,3.0,False
+Mayor,0.0,2.0,presion arterial nivel 1,muy alto,0.0,2.0,0.0,2.0,0.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 2,normal,0.0,0.0,1.0,3.0,0.0,7.0,True
+Mayor,1.0,2.0,elevada,muy alto,0.0,2.0,0.0,2.0,1.0,7.0,True
+Joven,1.0,4.0,elevada,normal,0.0,0.0,1.0,2.0,0.0,7.0,True
+Mayor,1.0,3.0,elevada,muy alto,1.0,2.0,0.0,2.0,0.0,3.0,False
+Mayor,1.0,2.0,presion arterial nivel 2,alto,0.0,0.0,1.0,1.0,0.0,3.0,False
+Mayor,1.0,1.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,2.0,0.0,7.0,True
+Mayor,1.0,2.0,elevada,alto,1.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,3.0,elevada,muy alto,0.0,0.0,1.0,2.0,0.0,7.0,True
+Mayor,1.0,3.0,normal,alto,0.0,2.0,1.0,2.0,0.0,7.0,False
+Joven,1.0,3.0,normal,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,True
+Mayor,1.0,4.0,presion arterial nivel 2,muy alto,1.0,2.0,0.0,2.0,3.0,7.0,True
+Joven,1.0,3.0,normal,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,2.0,elevada,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,0.0,3.0,normal,muy alto,0.0,0.0,0.0,1.0,1.0,3.0,False
+Mayor,1.0,1.0,presion arterial nivel 2,muy alto,1.0,0.0,0.0,2.0,0.0,7.0,False
+Joven,0.0,4.0,normal,muy alto,0.0,2.0,0.0,2.0,0.0,3.0,False
+Mayor,0.0,3.0,normal,muy alto,0.0,2.0,0.0,2.0,0.0,7.0,False
+Mayor,1.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,1.0,2.0,1.0,7.0,True
+Mayor,1.0,4.0,elevada,muy alto,0.0,2.0,1.0,3.0,1.0,3.0,True
+Mayor,1.0,4.0,presion arterial nivel 1,muy alto,0.0,2.0,0.0,2.0,3.0,3.0,True
+Mayor,1.0,4.0,presion arterial nivel 2,muy alto,0.0,0.0,1.0,1.0,0.0,7.0,True
+Mayor,1.0,4.0,elevada,muy alto,0.0,2.0,0.0,1.0,2.0,7.0,True
+Mayor,1.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,2.0,2.0,7.0,True
+Mayor,1.0,3.0,normal,muy alto,0.0,0.0,0.0,1.0,1.0,7.0,False
+Joven,1.0,2.0,normal,normal,1.0,0.0,0.0,1.0,0.0,7.0,False
+Mayor,1.0,4.0,elevada,muy alto,0.0,2.0,1.0,1.0,3.0,3.0,True
+Mayor,0.0,3.0,normal,alto,0.0,0.0,0.0,2.0,0.0,3.0,False
+Mayor,0.0,4.0,normal,muy alto,0.0,2.0,0.0,2.0,0.0,3.0,False
+Joven,1.0,3.0,elevada,muy alto,1.0,0.0,0.0,1.0,2.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 1,alto,0.0,0.0,1.0,1.0,0.0,7.0,False
+Mayor,0.0,2.0,presion arterial nivel 1,muy alto,1.0,2.0,1.0,1.0,1.0,3.0,False
+Joven,1.0,4.0,elevada,muy alto,0.0,2.0,1.0,1.0,0.0,7.0,True
+Joven,0.0,2.0,normal,normal,0.0,0.0,0.0,2.0,0.0,3.0,False
+Mayor,1.0,3.0,presion arterial nivel 2,muy alto,0.0,0.0,1.0,2.0,1.0,7.0,True
+Mayor,1.0,4.0,presion arterial nivel 2,alto,0.0,2.0,1.0,1.0,0.0,7.0,False
+Mayor,0.0,4.0,presion arterial nivel 2,muy alto,0.0,0.0,1.0,2.0,0.0,3.0,True
+Mayor,0.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,2.0,0.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 2,alto,0.0,2.0,0.0,2.0,2.0,6.0,True
+Mayor,1.0,4.0,presion arterial nivel 2,muy alto,0.0,0.0,1.0,2.0,1.0,7.0,True
+Mayor,1.0,4.0,normal,alto,1.0,0.0,0.0,1.0,3.0,7.0,False
+Mayor,1.0,4.0,presion arterial nivel 1,normal,0.0,2.0,1.0,2.0,1.0,6.0,True
+Joven,1.0,3.0,presion arterial nivel 1,muy alto,0.0,0.0,0.0,1.0,1.0,3.0,False
+Mayor,1.0,3.0,presion arterial nivel 1,muy alto,1.0,2.0,0.0,1.0,3.0,3.0,False
+Joven,1.0,4.0,elevada,muy alto,0.0,2.0,0.0,2.0,0.0,7.0,True
+Mayor,0.0,4.0,presion arterial nivel 1,muy alto,0.0,2.0,1.0,2.0,2.0,7.0,True
+Joven,1.0,1.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,1.0,2.0,3.0,False
+Mayor,1.0,1.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,3.0,0.0,7.0,False
+Mayor,0.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,True
+Mayor,0.0,2.0,presion arterial nivel 2,normal,0.0,0.0,0.0,1.0,2.0,3.0,False
+Joven,1.0,3.0,elevada,alto,1.0,0.0,0.0,3.0,0.0,7.0,False
+Mayor,1.0,2.0,presion arterial nivel 2,muy alto,0.0,0.0,1.0,2.0,3.0,6.0,True
+Mayor,1.0,2.0,crisis,muy alto,0.0,2.0,0.0,1.0,1.0,7.0,True
+Mayor,1.0,3.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,2.0,3.0,7.0,True
+Joven,1.0,3.0,elevada,normal,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 2,muy alto,0.0,0.0,1.0,2.0,3.0,7.0,True
+Mayor,0.0,4.0,presion arterial nivel 1,muy alto,1.0,0.0,0.0,2.0,3.0,3.0,True
+Mayor,0.0,3.0,elevada,alto,0.0,2.0,0.0,2.0,0.0,3.0,False
+Mayor,1.0,4.0,normal,muy alto,0.0,2.0,1.0,2.0,2.0,3.0,True
+Mayor,1.0,1.0,presion arterial nivel 2,alto,1.0,2.0,0.0,2.0,1.0,3.0,False
+Joven,0.0,4.0,presion arterial nivel 1,alto,0.0,2.0,1.0,2.0,0.0,3.0,False
+Joven,0.0,2.0,elevada,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,1.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,True
+Joven,0.0,4.0,normal,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,0.0,4.0,crisis,muy alto,0.0,0.0,1.0,1.0,0.0,3.0,False
+Mayor,1.0,3.0,presion arterial nivel 2,normal,1.0,0.0,0.0,1.0,1.0,7.0,False
+Mayor,0.0,3.0,presion arterial nivel 2,muy alto,0.0,0.0,0.0,1.0,0.0,7.0,False
+Joven,1.0,4.0,normal,alto,0.0,0.0,0.0,1.0,0.0,7.0,False
+Joven,1.0,4.0,presion arterial nivel 2,muy alto,0.0,2.0,1.0,2.0,3.0,7.0,True
+Mayor,1.0,4.0,elevada,muy alto,0.0,2.0,1.0,2.0,2.0,7.0,True
+Joven,1.0,4.0,presion arterial nivel 2,normal,0.0,2.0,1.0,2.0,0.0,7.0,True
+Mayor,1.0,2.0,presion arterial nivel 1,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,0.0,4.0,presion arterial nivel 2,muy alto,0.0,0.0,1.0,2.0,0.0,3.0,True
+Joven,0.0,3.0,elevada,alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,1.0,elevada,alto,0.0,0.0,1.0,2.0,0.0,7.0,True
+Joven,1.0,3.0,presion arterial nivel 1,alto,0.0,2.0,0.0,2.0,0.0,3.0,False
+Mayor,0.0,4.0,presion arterial nivel 2,alto,1.0,0.0,1.0,2.0,2.0,7.0,True
+Mayor,1.0,4.0,normal,alto,0.0,0.0,0.0,1.0,1.0,3.0,True
+Mayor,1.0,1.0,elevada,normal,0.0,2.0,0.0,2.0,0.0,7.0,False
+Joven,0.0,2.0,normal,alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,0.0,4.0,presion arterial nivel 1,muy alto,0.0,2.0,1.0,2.0,0.0,3.0,False
+Mayor,0.0,4.0,presion arterial nivel 1,muy alto,0.0,0.0,0.0,2.0,2.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 1,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Joven,0.0,3.0,normal,muy alto,0.0,2.0,1.0,1.0,0.0,3.0,False
+Mayor,0.0,3.0,normal,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Joven,0.0,3.0,normal,normal,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,elevada,muy alto,0.0,0.0,1.0,2.0,2.0,7.0,True
+Mayor,0.0,4.0,normal,muy alto,0.0,0.0,1.0,2.0,2.0,3.0,True
+Joven,0.0,2.0,normal,alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,4.0,normal,alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,0.0,3.0,presion arterial nivel 2,muy alto,0.0,0.0,0.0,1.0,1.0,3.0,False
+Mayor,1.0,4.0,normal,alto,0.0,2.0,1.0,2.0,1.0,3.0,True
+Mayor,1.0,4.0,normal,alto,0.0,2.0,1.0,1.0,1.0,3.0,True
+Mayor,0.0,3.0,presion arterial nivel 1,normal,0.0,2.0,0.0,2.0,0.0,3.0,False
+Mayor,0.0,4.0,crisis,muy alto,0.0,1.0,1.0,2.0,0.0,3.0,True
+Joven,1.0,3.0,normal,normal,0.0,2.0,0.0,1.0,3.0,3.0,True
+Mayor,0.0,2.0,elevada,muy alto,0.0,2.0,1.0,1.0,1.0,3.0,False
+Mayor,0.0,3.0,presion arterial nivel 2,alto,0.0,0.0,0.0,1.0,1.0,3.0,False
+Mayor,1.0,4.0,elevada,muy alto,0.0,2.0,1.0,2.0,2.0,3.0,True
+Mayor,1.0,4.0,presion arterial nivel 1,muy alto,1.0,2.0,1.0,3.0,0.0,7.0,True
+Joven,1.0,4.0,elevada,muy alto,0.0,2.0,0.0,1.0,0.0,7.0,True
+Joven,0.0,2.0,presion arterial nivel 1,muy alto,0.0,0.0,0.0,2.0,0.0,3.0,False
+Joven,1.0,2.0,elevada,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,2.0,normal,alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,0.0,2.0,elevada,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,0.0,4.0,presion arterial nivel 1,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,1.0,presion arterial nivel 1,alto,0.0,0.0,0.0,2.0,2.0,3.0,True
+Mayor,0.0,3.0,elevada,normal,1.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,elevada,alto,0.0,0.0,0.0,2.0,0.0,3.0,True
+Mayor,1.0,4.0,normal,alto,0.0,0.0,0.0,1.0,1.0,7.0,True
+Joven,1.0,4.0,normal,muy alto,0.0,2.0,1.0,2.0,1.0,3.0,True
+Mayor,1.0,4.0,elevada,alto,0.0,0.0,0.0,1.0,2.0,7.0,True
+Mayor,1.0,2.0,elevada,alto,1.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,normal,alto,0.0,0.0,1.0,2.0,0.0,6.0,False
+Mayor,1.0,4.0,presion arterial nivel 2,alto,0.0,0.0,0.0,2.0,1.0,7.0,True
+Mayor,1.0,4.0,elevada,muy alto,0.0,0.0,1.0,2.0,1.0,7.0,False
+Mayor,0.0,3.0,elevada,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,4.0,normal,muy alto,0.0,0.0,0.0,2.0,0.0,3.0,False
+Joven,0.0,3.0,elevada,alto,0.0,0.0,0.0,2.0,0.0,3.0,False
+Mayor,0.0,4.0,normal,alto,0.0,0.0,0.0,1.0,2.0,3.0,False
+Mayor,0.0,3.0,presion arterial nivel 2,normal,0.0,1.0,0.0,2.0,0.0,3.0,False
+Mayor,1.0,2.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,2.0,elevada,muy alto,0.0,0.0,0.0,1.0,0.0,7.0,True
+Joven,0.0,3.0,normal,muy alto,0.0,0.0,0.0,2.0,1.0,3.0,False
+Mayor,0.0,2.0,presion arterial nivel 1,muy alto,1.0,2.0,0.0,1.0,2.0,3.0,True
+Mayor,0.0,1.0,presion arterial nivel 2,alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,3.0,elevada,alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 1,normal,0.0,2.0,1.0,2.0,1.0,3.0,True
+Joven,1.0,4.0,presion arterial nivel 1,muy alto,0.0,0.0,1.0,2.0,0.0,6.0,True
+Mayor,1.0,3.0,elevada,alto,1.0,0.0,0.0,2.0,1.0,6.0,True
+Joven,1.0,4.0,presion arterial nivel 2,alto,0.0,0.0,0.0,1.0,0.0,7.0,True
+Joven,1.0,3.0,presion arterial nivel 1,normal,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 2,alto,0.0,2.0,1.0,1.0,1.0,7.0,True
+Mayor,1.0,4.0,presion arterial nivel 2,alto,0.0,2.0,0.0,1.0,0.0,6.0,False
+Joven,1.0,4.0,presion arterial nivel 2,muy alto,0.0,0.0,1.0,2.0,2.0,7.0,True
+Mayor,0.0,4.0,normal,normal,0.0,0.0,0.0,2.0,0.0,3.0,False
+Mayor,1.0,1.0,presion arterial nivel 1,alto,0.0,0.0,0.0,1.0,2.0,3.0,True
+Mayor,1.0,1.0,presion arterial nivel 2,alto,0.0,2.0,0.0,2.0,0.0,7.0,False
+Mayor,0.0,3.0,presion arterial nivel 2,muy alto,0.0,2.0,0.0,2.0,1.0,3.0,False
+Joven,0.0,3.0,presion arterial nivel 1,alto,0.0,0.0,0.0,2.0,0.0,3.0,False
+Mayor,1.0,2.0,presion arterial nivel 2,alto,0.0,2.0,0.0,1.0,1.0,3.0,True
+Mayor,0.0,4.0,presion arterial nivel 1,normal,0.0,0.0,0.0,2.0,0.0,3.0,False
+Mayor,1.0,4.0,normal,muy alto,0.0,0.0,1.0,2.0,1.0,7.0,True
+Joven,1.0,3.0,presion arterial nivel 1,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,0.0,4.0,elevada,alto,0.0,1.0,1.0,2.0,1.0,7.0,True
+Joven,1.0,2.0,elevada,normal,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 2,alto,0.0,0.0,0.0,1.0,1.0,7.0,True
+Mayor,1.0,4.0,normal,muy alto,0.0,1.0,0.0,3.0,3.0,6.0,True
+Mayor,0.0,4.0,presion arterial nivel 2,alto,1.0,2.0,1.0,2.0,2.0,6.0,True
+Mayor,1.0,2.0,presion arterial nivel 1,alto,0.0,2.0,0.0,1.0,0.0,7.0,False
+Mayor,1.0,2.0,elevada,alto,0.0,0.0,0.0,3.0,0.0,3.0,False
+Mayor,1.0,3.0,presion arterial nivel 2,alto,0.0,2.0,0.0,2.0,0.0,7.0,True
+Mayor,0.0,2.0,presion arterial nivel 1,muy alto,0.0,0.0,0.0,1.0,0.0,3.0,False
+Joven,1.0,4.0,elevada,normal,0.0,0.0,1.0,3.0,0.0,6.0,True
+Mayor,1.0,4.0,presion arterial nivel 2,normal,0.0,2.0,1.0,1.0,2.0,7.0,True
+Mayor,0.0,4.0,elevada,normal,0.0,0.0,1.0,2.0,0.0,3.0,True
+Joven,1.0,2.0,elevada,normal,0.0,0.0,0.0,1.0,0.0,3.0,False
+Mayor,1.0,4.0,presion arterial nivel 2,normal,1.0,2.0,0.0,2.0,2.0,6.0,True
+Mayor,0.0,4.0,presion arterial nivel 2,muy alto,0.0,0.0,1.0,2.0,0.0,7.0,True
+Joven,1.0,1.0,normal,muy alto,0.0,0.0,0.0,2.0,0.0,7.0,True
+Mayor,1.0,4.0,presion arterial nivel 2,normal,1.0,0.0,0.0,2.0,2.0,7.0,True
+Mayor,1.0,4.0,presion arterial nivel 1,normal,0.0,0.0,1.0,2.0,1.0,7.0,True
+Mayor,0.0,2.0,presion arterial nivel 1,alto,0.0,2.0,0.0,2.0,1.0,3.0,True
