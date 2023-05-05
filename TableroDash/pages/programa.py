@@ -740,11 +740,11 @@ def generate_matrix(age, sex_male, resting_bp, maximum_hr, serum_cholesterol, fa
         legend_title='',
         legend=dict(
             yanchor="top",
-            y=1.15,
+            y=1.7,
             xanchor="left",
-            x=0.1
+            x=0
         ),
-        height=400,
+        height=250,
     )
 
     return generateTable(lineas), fig
